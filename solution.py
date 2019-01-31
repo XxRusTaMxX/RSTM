@@ -16,8 +16,8 @@ import random
 
 #Задаем ФПС(кол-во кадров в секунду), размеры экрана и цвета(это не важно)
 FPS = 60
-W = 900  # øèðèíà ýêðàíà
-H = 800  # âûñîòà ýêðàíà
+W = 900
+H = 800
 WHITE = (255, 255, 255)
 #Инициализируем окно
 pygame.init()
@@ -37,8 +37,8 @@ count = 0 #переменная для счёта
 motion = 0 #переменная для работы с нажатиями клавиш
 
 gameover = False #переменная для определения "конца игры"
-f2 = pygame.font.SysFont('serif', 48) #задаем шрифт
-text2 = f2.render("GAMEOVER", 0, (0, 180, 0))    
+f2 = pygame.font.SysFont('Zig', 38) #задаем шрифт
+text2 = f2.render("GAMEOVER", 0, (0, 255, 0))    
 #Главный цикл
 while 1:
     #Задаем "счёт"
@@ -50,13 +50,13 @@ while 1:
         x1.append(random.randint(-5, 905)) #Случайные координаты "пуль"  по х
         y1.append(random.randint(-5, 905)) #Случайные координаты "пуль" по у
     
-    pygame.draw.circle(sc, WHITE, (x, y), r) #Рисуем круг
+    pygame.draw.circle(sc, (0, 0, 255), (x, y), r) #Рисуем круг
     for i in range(10):
         pygame.draw.circle(sc, (255, 0, 0), (x1[i], y1[i]), 5) #Рисуем пульки
     
     if gameover == True:           #Если игра окончена(пользователь проиграл)
-        sc.blit(text2, (W//3, H//4)) #Выводим "GAMEOVER"
-    text = f2.render('{}'.format(count), 0, (0, 180, 0)) #Выводим счёт на экран
+        sc.blit(text2, (W//3, H//3)) #Выводим "GAMEOVER"
+    text = f2.render('{}'.format(count), 0, (0, 255, 0)) #Выводим счёт на экран
     sc.blit(text, (800, 700))
     pygame.display.update()
     
