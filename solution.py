@@ -62,6 +62,9 @@ while 1:
                     y1[i] += random.randint(0, 10)
                 elif y1[i] > 740:
                     y1[i] += random.randint(-10, 0)
+            if hitted1 == True:
+                for i in range(20):
+                    x1[i] = random.randint(-100, 1)
         pygame.draw.circle(sc, (0, 0, 255), (x, y), r)
         pygame.draw.circle(sc, (255, 0, 0), (x - r, y), 5)
         if fired == True:
@@ -109,9 +112,10 @@ while 1:
                 else:
                     paused = False
             if i.key == pygame.K_g:
-                if int(count) % 2 == 0:
+                if int(count) % 5 == 0:
                     hitted1 = True
-                if int(count) == 3:
+                    count20 = count
+                if int(count) > count20:
                     hitted1 = False
     
     if gameover == False and paused == False: 
